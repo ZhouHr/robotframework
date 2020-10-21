@@ -318,7 +318,7 @@
                   <span class="arg-default-value" title="Argument default value">${$value.default}</span>
                   {{/if}}
                   </div>
-                  {{if $value.type}}<span class="arg-type" title="Argument '${$value.name}' will be converter to type ${$value.type}">(${$value.type})</span>{{/if}}
+                  {{if $value.type && $value.type !== 'str'}}<span class="arg-type" title="Argument '${$value.name}' will be converter to type ${$value.type}">(${$value.type})</span>{{/if}}
                   </div>
               </li>
             {{/each}}
@@ -427,7 +427,7 @@
                     <span class="arg-default-value" title="Argument default value">${$value.default}</span>
                     {{/if}}
                     </div>
-                    {{if $value.type}}<span class="arg-type" title="Argument '${$value.name}' will be converter to type ${$value.type}">(${$value.type})</span>{{/if}}
+                    {{if $value.type && $value.type !== 'str'}}<span class="arg-type" title="Argument '${$value.name}' will be converter to type ${$value.type}">(${$value.type})</span>{{/if}}
                     </div>
                   </li>
                 {{/each}}
