@@ -127,7 +127,7 @@
         }
         let regexp = new RegExp(patternRegexp, 'i');
         let test = regexp.test.bind(regexp);
-        let result = {contains_tags: libdoc.all_tags.length};
+        let result = {};
         let matchCount = 0;
         result.keywords = util.map(libdoc.keywords, function (kw) {
             kw = $.extend({}, kw);
