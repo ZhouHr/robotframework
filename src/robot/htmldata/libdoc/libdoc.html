@@ -131,11 +131,11 @@
         let matchCount = 0;
         result.keywords = util.map(libdoc.keywords, function (kw) {
             kw = $.extend({}, kw);
-            kw.matched = (include.name && test(kw.name) ||
-                          include.args && test(kw.args) ||
-                          include.doc && test($(kw.doc).text()) ||
-                          include.tags && util.any(util.map(kw.tags, test)));
-            if (kw.matched)
+            kw.hidden =  !(include.name && test(kw.name)) &&
+                         !(include.args && test(kw.args)) &&
+                          !(include.doc && test($(kw.doc).text())) &&
+                          !(include.tags && util.any(util.map(kw.tags, test)));
+            if (!kw.hidden)
                 matchCount++;
             return kw
         });
@@ -357,7 +357,7 @@
 
 <script type="text/x-jquery-tmpl" id="keyword-shortcuts-template">
     {{each keywords}}
-    {{if $value.matched}}
+    {{if !$value.hidden}}
     <li>
     <a href="#${encodeURIComponent($value.name)}"
        onclick="closeMenu()"
@@ -367,7 +367,7 @@
     {{/if}}
     {{/each}}
     {{each keywords}}
-    {{if !$value.matched}}
+    {{if $value.hidden}}
     <li>
     <a href="#${encodeURIComponent($value.name)}"
        onclick="closeMenu()"
@@ -391,12 +391,12 @@
     <h2 id="Keywords">Keywords</h2>
     <div class="keywords">
         {{each keywords}}
-        {{if $value.matched}}
+        {{if !$value.hidden}}
             {{tmpl($value) 'keyword-template'}}
         {{/if}}
         {{/each}}
         {{each keywords}}
-        {{if !$value.matched}}
+        {{if $value.hidden}}
             {{tmpl($value) 'keyword-template'}}
         {{/if}}
         {{/each}}
@@ -404,7 +404,7 @@
 </script>
 
 <script type="text/x-jquery-tmpl" id="keyword-template">
-    <div class="keyword-container {{if !matched}}no-{{/if}}match" id="${name}">
+    <div class="keyword-container {{if hidden}}no-{{/if}}match" id="${name}">
        <div class="keyword-name">
             <h2>
             <a class="kw-name" href="#${encodeURIComponent(name)}"
