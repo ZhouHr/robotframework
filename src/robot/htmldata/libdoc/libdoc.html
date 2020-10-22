@@ -367,7 +367,7 @@
     {{/if}}
     {{/each}}
     {{each keywords}}
-    {{if $value.matched == false}}
+    {{if !$value.matched}}
     <li>
     <a href="#${encodeURIComponent($value.name)}"
        onclick="closeMenu()"
@@ -396,7 +396,7 @@
         {{/if}}
         {{/each}}
         {{each keywords}}
-        {{if $value.matched === false}}
+        {{if !$value.matched}}
             {{tmpl($value) 'keyword-template'}}
         {{/if}}
         {{/each}}
@@ -404,7 +404,7 @@
 </script>
 
 <script type="text/x-jquery-tmpl" id="keyword-template">
-    <div class="keyword-container {{if matched === false}}no-{{/if}}match" id="${name}">
+    <div class="keyword-container {{if !matched}}no-{{/if}}match" id="${name}">
        <div class="keyword-name">
             <h2>
             <a class="kw-name" href="#${encodeURIComponent(name)}"
