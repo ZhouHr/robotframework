@@ -220,3 +220,15 @@ class TestLibdocJsonWriter(unittest.TestCase):
 
     def test_DynamicLibrary_json(self):
         run_libdoc_and_validate_json('DynamicLibrary.json')
+
+class TestLibdocJsonBuilder(unittest.TestCase):
+
+    def test_libdoc_json_roundtrip(self):
+        library = path.join(testdata_dir, 'DynamicLibrary.json')
+        libdoc = LibraryDocumentation(library)
+        libspec = json.loads(json.dumps(libdoc.to_dictionary()))
+        with open(library) as f:
+            org_libspec = json.load(f)
+        libspec['generated'] = None
+        org_libspec['generated'] = None
+        assert_equal(libspec, org_libspec)
