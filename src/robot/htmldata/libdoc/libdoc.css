@@ -254,23 +254,30 @@ input.hamburger-menu:checked ~ span.hamburger-menu-3
     letter-spacing: 0.1em;
 }
 
+.arguments-list-container {
+    overflow-y: auto;
+}
+
 .arguments-list {
     display: -ms-inline-grid;
     display: inline-grid;
     grid-template-columns: auto auto auto;
+    row-gap: 3px;
 }
 
 .arguments-list .arg-name-container {
     grid-column: 1;
+    border-radius: 3px;
 }
 
 .arguments-list .arg-default-container {
     grid-column: 2;
     margin-left: 0.5rem;
+    display: flex;
 }
 
-.arguments-list .arg-required {
-    font-weight: bold;
+.arguments-list .arg-optional {
+    font-style: italic;
 }
 
 .arguments-list .arg-default-eq {
@@ -280,6 +287,7 @@ input.hamburger-menu:checked ~ span.hamburger-menu-3
 .arguments-list .arg-default-value {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    border-radius: 3px;
 }
 
 .arguments-list .base-arg-data {
@@ -287,10 +295,14 @@ input.hamburger-menu:checked ~ span.hamburger-menu-3
     min-width: 150px;
 }
 
-.arguments-list .arg-type {
+.arguments-list .arg-type-container {
     margin-left: 2rem;
     grid-column: 3;
+}
+
+.arguments-list .arg-type {
     background: var(--background-color);
+    white-space: nowrap;
 }
 
 @media only screen and (min-width: 900px) {
@@ -497,7 +509,6 @@ h4 {
 }
 .args {
     min-width: 200px;
-    overflow-y: auto;
 }
 .args span {
     font-family: monospace;
