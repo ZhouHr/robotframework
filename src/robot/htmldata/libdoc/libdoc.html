@@ -46,9 +46,6 @@
         document.title = libdoc.name;
         storage.init('libdoc');
         renderTemplate('base', libdoc, $('body'));
-        libdoc.keywords.forEach(kw => {
-          kw.matched = true
-        });
         if (libdoc.inits.length) {
             renderTemplate('importing', libdoc);
         }
