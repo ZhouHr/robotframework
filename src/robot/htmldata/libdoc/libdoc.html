@@ -309,11 +309,11 @@
           {{if args.length}}
               <div class="args">
                 <h4>Arguments</h4>
+                <div class="arguments-list-container">
                 <div class="arguments-list">
                 {{each args}}
-                  <div class="arg-name-container">
                   <span class="arg-name {{if $value.required}}arg-required{{else}}arg-optional{{/if}}" title="Argument name">{{if $value.kind === 'VAR_POSITIONAL'}}*{{/if}}{{if $value.kind === 'VAR_NAMED'}}**{{/if}}${$value.name}</span>
-                  </div>
+
                   {{if $value.default !== null}}
                   <div class="arg-default-container">
                   <span class="arg-default-eq">=</span>
@@ -321,10 +321,11 @@
                   </div>
                   {{/if}}
 
-                  {{if $value.type && $value.type !== 'str'}}
+                  {{if $value.type}}
                   <span class="arg-type" title="Argument '${$value.name}' will be converter to type ${$value.type}">&lt;${$value.type}&gt;</span>
                   {{/if}}
                 {{/each}}
+                </div>
                 </div>
               </div>
           {{/if}}
@@ -422,9 +423,7 @@
                 <div class="arguments-list-container">
                 <div class="arguments-list">
                 {{each args}}
-                  <div class="arg-name-container">
                   <span class="arg-name {{if $value.required}}arg-required{{else}}arg-optional{{/if}}" title="Argument name">{{if $value.kind === 'VAR_POSITIONAL'}}*{{/if}}{{if $value.kind === 'VAR_NAMED'}}**{{/if}}${$value.name}</span>
-                  </div>
 
                   {{if $value.default !== null}}
                   <div class="arg-default-container">
@@ -433,10 +432,8 @@
                   </div>
                   {{/if}}
 
-                  {{if $value.type && $value.type !== 'str'}}
-                  <div class="arg-type-container">
+                  {{if $value.type}}
                   <span class="arg-type" title="Argument '${$value.name}' will be converter to type ${$value.type}">&lt;${$value.type}&gt;</span>
-                  </div>
                   {{/if}}
                 {{/each}}
                 </div>

@@ -265,14 +265,17 @@ input.hamburger-menu:checked ~ span.hamburger-menu-3
     row-gap: 3px;
 }
 
-.arguments-list .arg-name-container {
+.arguments-list .arg-name {
     grid-column: 1;
     border-radius: 3px;
+    white-space: nowrap;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    justify-self: start;
 }
 
 .arguments-list .arg-default-container {
     grid-column: 2;
-    margin-left: 0.5rem;
     display: flex;
 }
 
@@ -281,6 +284,8 @@ input.hamburger-menu:checked ~ span.hamburger-menu-3
 }
 
 .arguments-list .arg-default-eq {
+    margin-left: 2rem;
+    margin-right: 0.5rem;
     background: var(--background-color);
 }
 
@@ -295,12 +300,9 @@ input.hamburger-menu:checked ~ span.hamburger-menu-3
     min-width: 150px;
 }
 
-.arguments-list .arg-type-container {
+.arguments-list .arg-type {
     margin-left: 2rem;
     grid-column: 3;
-}
-
-.arguments-list .arg-type {
     background: var(--background-color);
     white-space: nowrap;
 }
