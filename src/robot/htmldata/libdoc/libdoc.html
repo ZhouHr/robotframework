@@ -419,15 +419,19 @@
                 <ul class="arguments-list">
                 {{each args}}
                   <li>
-                    <div class="arg ${$value.kind} {{if $value.required}}arg-required{{else}}arg-optional{{/if}}{{if $value.type}} arg-with-type{{/if}}">
-                    <div class="base-arg-data">
-                    <span class="arg-name" title="Argument name">{{if $value.kind === 'VAR_POSITIONAL'}}*{{/if}}{{if $value.kind === 'VAR_NAMED'}}**{{/if}}${$value.name}</span>
+                    <div class="arg ${$value.kind}{{if $value.type}} arg-with-type{{/if}}">
+                    <span class="arg-name {{if $value.required}}arg-required{{else}}arg-optional{{/if}}" title="Argument name">{{if $value.kind === 'VAR_POSITIONAL'}}*{{/if}}{{if $value.kind === 'VAR_NAMED'}}**{{/if}}${$value.name}</span>
+
                     {{if $value.default !== null}}
+                    <div class="arg-default-container">
                     <span class="arg-default-eq">=</span>
                     <span class="arg-default-value" title="Argument default value">${$value.default}</span>
-                    {{/if}}
                     </div>
-                    {{if $value.type && $value.type !== 'str'}}<span class="arg-type" title="Argument '${$value.name}' will be converter to type ${$value.type}">(${$value.type})</span>{{/if}}
+                    {{/if}}
+
+                    {{if $value.type && $value.type !== 'str'}}
+                    <span class="arg-type" title="Argument '${$value.name}' will be converter to type ${$value.type}">&lt;${$value.type})&gt;</span>
+                    {{/if}}
                     </div>
                   </li>
                 {{/each}}

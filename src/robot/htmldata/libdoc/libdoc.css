@@ -262,14 +262,17 @@ ul.arguments-list {
 
 .arguments-list .arg {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: baseline;
     margin-bottom: 0.5rem;
 }
 
-.arguments-list .arg-name {
+.arguments-list .arg-default-container {
+    margin-left: 2rem;
+}
+
+.arguments-list .arg-required {
     font-weight: bold;
-    margin-right: 0.5rem;
 }
 
 .arguments-list .arg-default-eq {
@@ -277,7 +280,6 @@ ul.arguments-list {
 }
 
 .arguments-list .arg-default-value {
-    margin-left: 0.5rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
