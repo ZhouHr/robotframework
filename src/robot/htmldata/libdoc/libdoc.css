@@ -255,6 +255,7 @@ input.hamburger-menu:checked ~ span.hamburger-menu-3
 }
 
 .arguments-list {
+    display: -ms-inline-grid;
     display: inline-grid;
     grid-template-columns: auto auto auto;
 }
