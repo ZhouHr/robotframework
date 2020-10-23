@@ -254,21 +254,20 @@ input.hamburger-menu:checked ~ span.hamburger-menu-3
     letter-spacing: 0.1em;
 }
 
-ul.arguments-list {
-    list-style: none;
-    overflow-y: auto;
-    padding: 0;
+.arguments-list {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
 }
 
-.arguments-list .arg {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    margin-bottom: 0.5rem;
+.arguments-list .arg-name {
+    grid-column: 1;
+    justify-self: start;
+    margin-bottom: 3px;
 }
 
 .arguments-list .arg-default-container {
-    margin-left: 2rem;
+    grid-column: 2;
+    margin-left: 0.5rem;
 }
 
 .arguments-list .arg-required {
@@ -290,7 +289,8 @@ ul.arguments-list {
 }
 
 .arguments-list .arg-type {
-    font-size: 0.9em;
+    margin-left: 2rem;
+    grid-column: 3;
     background: var(--background-color);
 }
 
@@ -498,6 +498,7 @@ h4 {
 }
 .args {
     min-width: 200px;
+    overflow-y: auto;
 }
 .args span {
     font-family: monospace;
