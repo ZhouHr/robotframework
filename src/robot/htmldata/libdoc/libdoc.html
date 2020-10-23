@@ -311,8 +311,9 @@
                 <h4>Arguments</h4>
                 <div class="arguments-list">
                 {{each args}}
+                  <div class="arg-name-container">
                   <span class="arg-name {{if $value.required}}arg-required{{else}}arg-optional{{/if}}" title="Argument name">{{if $value.kind === 'VAR_POSITIONAL'}}*{{/if}}{{if $value.kind === 'VAR_NAMED'}}**{{/if}}${$value.name}</span>
-
+                  </div>
                   {{if $value.default !== null}}
                   <div class="arg-default-container">
                   <span class="arg-default-eq">=</span>
@@ -420,7 +421,9 @@
                 <h4>Arguments</h4>
                 <div class="arguments-list">
                 {{each args}}
+                  <div class="arg-name-container">
                   <span class="arg-name {{if $value.required}}arg-required{{else}}arg-optional{{/if}}" title="Argument name">{{if $value.kind === 'VAR_POSITIONAL'}}*{{/if}}{{if $value.kind === 'VAR_NAMED'}}**{{/if}}${$value.name}</span>
+                  </div>
 
                   {{if $value.default !== null}}
                   <div class="arg-default-container">

@@ -260,10 +260,8 @@ input.hamburger-menu:checked ~ span.hamburger-menu-3
     grid-template-columns: auto auto auto;
 }
 
-.arguments-list .arg-name {
+.arguments-list .arg-name-container {
     grid-column: 1;
-    justify-self: start;
-    margin-bottom: 3px;
 }
 
 .arguments-list .arg-default-container {
